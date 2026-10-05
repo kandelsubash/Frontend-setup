@@ -1,0 +1,42 @@
+<div class="data-table-container">
+  <p-table
+    [value]="data()"
+    [loading]="loading()"
+    [paginator]="paginator()"
+    [rows]="rows()"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    styleClass="p-datatable-striped"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        @for (col of columns(); track col.field) {
+          <th [pSortableColumn]="col.sortable ? col.field : undefined">
+            {{ col.header }}
+            @if (col.sortable) {
+              <p-sort-icon [field]="col.field" />
+            }
+          </th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        @for (col of columns(); track col.field) {
+          <td>
+            {{ rowData[col.field] }}
+          </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="columns().length" class="table-empty-message">
+          {{ emptyMessage() }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

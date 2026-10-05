@@ -1,0 +1,10 @@
+<div class="error-page-container">
+  <h1 class="error-code">{{ code() }}</h1>
+  <h2 class="error-title">{{ title() }}</h2>
+  <p class="error-description">{{ message() }}</p>
+  <p-button
+    label="Return Home"
+    icon="pi pi-home"
+    [routerLink]="homeUrl()"
+  />
+</div>

@@ -1,0 +1,683 @@
+/* ========================================================
+   Cotiviti Universal Sticky Header Styles
+   ======================================================== */
+
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Overall Header Container: Very light brown background */
+.cotiviti-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 56px;
+  background-color: #f7f3ec; /* Very light brown / warm sand */
+  border-bottom: 1px solid #e7ded4;
+  box-shadow: 0 1px 3px 0 rgba(80, 60, 30, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  user-select: none;
+}
+
+/* ========================================================
+   Left: Brand Logo & Navigation Links
+   ======================================================== */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+/* Hamburger button for mobile devices */
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.mobile-toggle-btn:hover {
+  background-color: #eae1d5;
+  color: #0f172a;
+}
+
+/* Brand Link and Logo Typography (Bold) */
+.brand-container {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding-right: 0.75rem;
+  cursor: pointer;
+}
+
+.brand-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800; /* Bold */
+  letter-spacing: 0.22em;
+  color: #102a43;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.brand-accent {
+  color: #d92938;
+  font-weight: 900;
+}
+
+/* Desktop Navigation Links (Little bit bold) */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+}
+
+.nav-tab-btn {
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 700; /* Little bit bold */
+  color: #243347;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-tab-btn:hover {
+  background-color: #eae1d5;
+  color: #0284c7;
+}
+
+.nav-tab-btn:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 1px;
+}
+
+.nav-tab-caret {
+  font-size: 0.65rem;
+  color: #556980;
+  transition: transform 0.15s ease;
+}
+
+.nav-tab-btn:hover .nav-tab-caret {
+  color: #0284c7;
+}
+
+/* Subheaders & Dropdown text: Little bit bold */
+:host ::ng-deep .p-menu .p-menu-item-link {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+:host ::ng-deep .p-menu .p-menu-item-label {
+  font-weight: 600;
+}
+
+/* ========================================================
+   Right: Utility Icons
+   ======================================================== */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-action-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.icon-action-btn:hover {
+  background-color: #eae1d5;
+  color: #0f172a;
+}
+
+.icon-action-btn:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 1px;
+}
+
+/* Notification badge */
+.notif-btn {
+  position: relative;
+}
+
+.custom-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #f7f3ec;
+}
+
+/* ========================================================
+   Help / Application Info Modal Dialog
+   ======================================================== */
+
+.app-info-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+.app-info-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.app-version-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.app-info-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.app-lead {
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.app-support-box {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border-left: 3px solid #0284c7;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ========================================================
+   Notifications Popover Panel
+   ======================================================== */
+
+.notif-popover-content {
+  width: 340px;
+  max-width: 90vw;
+  padding: 0;
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.notif-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.notif-clear-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  color: #0284c7;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.notif-clear-btn:hover {
+  text-decoration: underline;
+}
+
+.notif-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.notif-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.notif-item:hover {
+  background-color: #f8fafc;
+}
+
+.notif-item.read {
+  opacity: 0.65;
+}
+
+.notif-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+
+.indicator-success {
+  background-color: #10b981;
+}
+
+.indicator-warn {
+  background-color: #f59e0b;
+}
+
+.indicator-info {
+  background-color: #3b82f6;
+}
+
+.notif-body {
+  flex: 1;
+}
+
+.notif-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+}
+
+.notif-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.notif-time {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.notif-desc {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.notif-footer {
+  padding: 0.6rem 1rem;
+  background-color: #f8fafc;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+}
+
+.notif-view-all {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0284c7;
+  text-decoration: none;
+}
+
+.notif-view-all:hover {
+  text-decoration: underline;
+}
+
+/* ========================================================
+   9-Dots Suite Launcher Popover (Cotiviti Administrator)
+   ======================================================== */
+
+.suite-admin-popover-content {
+  width: 320px;
+  padding: 0;
+}
+
+.admin-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 1.25rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.admin-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.admin-display-name {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.admin-email {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.admin-badges {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.role-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+}
+
+.env-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+}
+
+.admin-menu-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.admin-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+  width: 100%;
+}
+
+.admin-menu-item:hover {
+  background-color: #f8fafc;
+}
+
+.admin-menu-icon {
+  font-size: 1.05rem;
+  color: #0284c7;
+  width: 20px;
+  text-align: center;
+}
+
+.admin-menu-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-item-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.admin-item-sub {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.admin-popover-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.admin-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem;
+  background-color: #ffffff;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-logout-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* ========================================================
+   Responsive Mobile Drawer
+   ======================================================== */
+
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1100;
+  backdrop-filter: blur(2px);
+}
+
+.mobile-drawer-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background-color: #ffffff;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f7f3ec;
+}
+
+.mobile-drawer-close {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.mobile-drawer-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-user-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.mobile-user-role {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.mobile-drawer-links {
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.mobile-accordion-group {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.mobile-accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-accordion-toggle i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.mobile-accordion-toggle i.rotate {
+  transform: rotate(180deg);
+}
+
+.mobile-sublinks {
+  background-color: #f8fafc;
+  padding: 0.25rem 0;
+}
+
+.mobile-sublinks a {
+  display: block;
+  padding: 0.5rem 1.25rem 0.5rem 2rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mobile-sublinks a:hover {
+  background-color: #e2e8f0;
+  color: #0284c7;
+}
+
+.mobile-drawer-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.mobile-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-logout-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* ========================================================
+   Responsive Breakpoints
+   ======================================================== */
+
+@media (max-width: 1200px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: inline-flex;
+  }
+}

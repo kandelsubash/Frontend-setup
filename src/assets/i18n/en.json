@@ -1,0 +1,21 @@
+{
+  "APP": {
+    "TITLE": "Modern Enterprise Platform",
+    "WELCOME": "Welcome to the application"
+  },
+  "COMMON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "SEARCH": "Search...",
+    "LOADING": "Loading...",
+    "SUCCESS": "Operation completed successfully",
+    "ERROR": "An unexpected error occurred"
+  },
+  "AUTH": {
+    "LOGIN": "Sign In",
+    "LOGOUT": "Sign Out",
+    "UNAUTHORIZED": "Access Denied"
+  }
+}

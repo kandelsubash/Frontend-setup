@@ -1,0 +1,13 @@
+.data-table-container {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-empty-message {
+  text-align: center;
+  padding: 32px;
+  color: #6b7280;
+  font-size: 14px;
+}

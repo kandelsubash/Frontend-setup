@@ -1,0 +1,21 @@
+{
+  "APP": {
+    "TITLE": "Plateforme d'entreprise moderne",
+    "WELCOME": "Bienvenue dans l'application"
+  },
+  "COMMON": {
+    "SAVE": "Enregistrer",
+    "CANCEL": "Annuler",
+    "DELETE": "Supprimer",
+    "EDIT": "Modifier",
+    "SEARCH": "Rechercher...",
+    "LOADING": "Chargement...",
+    "SUCCESS": "Opération effectuée avec succès",
+    "ERROR": "Une erreur inattendue est survenue"
+  },
+  "AUTH": {
+    "LOGIN": "Se connecter",
+    "LOGOUT": "Se déconnecter",
+    "UNAUTHORIZED": "Accès refusé"
+  }
+}

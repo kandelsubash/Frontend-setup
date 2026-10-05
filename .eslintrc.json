@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "dist/**/*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.app.json"],
+        "createDefaultProgram": true
+      },
+      "rules": {
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-new-func": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@angular/common/http",
+                "importNames": ["HttpClient"],
+                "message": "Direct HttpClient injection is restricted in feature modules. Inject ApiService from @core instead."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "rules": {}
+    }
+  ]
+}

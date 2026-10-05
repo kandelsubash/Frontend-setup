@@ -1,0 +1,13 @@
+@if (loadingService.isLoading()) {
+  <div class="loading-overlay-backdrop" role="alert" aria-busy="true" aria-label="Loading">
+    <div class="loading-spinner-container">
+      <p-progress-spinner
+        ariaLabel="Loading content"
+        strokeWidth="4"
+        fill="transparent"
+        animationDuration=".8s"
+      />
+      <span class="loading-text">Loading...</span>
+    </div>
+  </div>
+}

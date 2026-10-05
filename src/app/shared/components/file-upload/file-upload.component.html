@@ -1,0 +1,10 @@
+<div class="file-upload-container">
+  <p-fileupload
+    [mode]="mode()"
+    [name]="name()"
+    [url]="url()"
+    [accept]="accept()"
+    [maxFileSize]="maxFileSize()"
+    (onUpload)="onUploadEvent($event)"
+  />
+</div>

@@ -1,0 +1,589 @@
+<header class="cotiviti-header" role="banner">
+  <!-- Left Side: Mobile Toggle, Brand Logo & Main Navigation -->
+  <div class="header-left">
+    <!-- Hamburger button for mobile / small screens -->
+    <button
+      type="button"
+      class="mobile-toggle-btn"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle mobile navigation menu"
+    >
+      <i [class]="mobileMenuOpen() ? 'pi pi-times' : 'pi pi-bars'"></i>
+    </button>
+
+    <!-- COTIVITI Corporate Brand Logo (Exact replica with red accent first 'I') -->
+    <a routerLink="/dashboard" class="brand-container" title="Cotiviti Healthcare Solutions">
+      <span class="brand-text">COT<span class="brand-accent">I</span>VITI</span>
+    </a>
+
+    <!-- Desktop Navigation Links with Dropdown Triggers -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- 1. FLMS -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="flmsMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="FLMS Menu"
+      >
+        <span>FLMS</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 2. Data Profiler -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="dpMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Data Profiler Menu"
+      >
+        <span>Data Profiler</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 3. Import -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="importMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Import Menu"
+      >
+        <span>Import</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 4. Bulk -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="bulkMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Bulk Operations Menu"
+      >
+        <span>Bulk</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 5. Reports -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="reportsMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Reports Menu"
+      >
+        <span>Reports</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 6. FileManager -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="fmMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="FileManager Menu"
+      >
+        <span>FileManager</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 7. Exceptions -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="exceptionsMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Exceptions Menu"
+      >
+        <span>Exceptions</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 8. CDIP -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="cdipMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="CDIP Menu"
+      >
+        <span>CDIP</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+
+      <!-- 9. Admin -->
+      <button
+        type="button"
+        class="nav-tab-btn"
+        (click)="adminMenu.toggle($event)"
+        aria-haspopup="true"
+        aria-label="Admin Menu"
+      >
+        <span>Admin</span>
+        <i class="pi pi-chevron-down nav-tab-caret"></i>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Right Side: Utility Action Icons (Help, Notifications, Settings, Suite Apps with Cotiviti Admin) -->
+  <div class="header-right">
+    <!-- Help Icon '?' (Opens plain-text application information popup) -->
+    <button
+      type="button"
+      class="icon-action-btn"
+      (click)="openHelpDialog()"
+      pTooltip="Help &amp; Information"
+      tooltipPosition="bottom"
+      aria-label="Application Information"
+    >
+      <i class="pi pi-question"></i>
+    </button>
+
+    <!-- Notification Bell with Badge -->
+    <button
+      type="button"
+      class="icon-action-btn notif-btn"
+      (click)="notifPopover.toggle($event)"
+      pTooltip="Notifications"
+      tooltipPosition="bottom"
+      aria-label="Notifications"
+    >
+      <i class="pi pi-bell"></i>
+      @if (unreadCount() > 0) {
+        <span class="custom-badge">{{ unreadCount() }}</span>
+      }
+    </button>
+
+    <!-- Settings Cog Icon -->
+    <button
+      type="button"
+      class="icon-action-btn"
+      (click)="settingsMenu.toggle($event)"
+      pTooltip="Settings"
+      tooltipPosition="bottom"
+      aria-label="Settings"
+    >
+      <i class="pi pi-cog"></i>
+    </button>
+
+    <!-- 9-Dots Suite Icon (Now contains Cotiviti Administrator features) -->
+    <button
+      type="button"
+      class="icon-action-btn suite-apps-btn"
+      (click)="appsPopover.toggle($event)"
+      pTooltip="Cotiviti Suite &amp; Account"
+      tooltipPosition="bottom"
+      aria-label="Cotiviti Suite Applications and Account"
+    >
+      <i class="pi pi-th-large"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ======================================================== -->
+<!-- PrimeNG Popup Menus (Attached to body for clean stacking) -->
+<!-- ======================================================== -->
+
+<p-menu #flmsMenu [model]="flmsItems" [popup]="true" appendTo="body" />
+<p-menu #dpMenu [model]="dataProfilerItems" [popup]="true" appendTo="body" />
+<p-menu #importMenu [model]="importItems" [popup]="true" appendTo="body" />
+<p-menu #bulkMenu [model]="bulkItems" [popup]="true" appendTo="body" />
+<p-menu #reportsMenu [model]="reportsItems" [popup]="true" appendTo="body" />
+<p-menu #fmMenu [model]="fileManagerItems" [popup]="true" appendTo="body" />
+<p-menu #exceptionsMenu [model]="exceptionsItems" [popup]="true" appendTo="body" />
+<p-menu #cdipMenu [model]="cdipItems" [popup]="true" appendTo="body" />
+<p-menu #adminMenu [model]="adminItems" [popup]="true" appendTo="body" />
+<p-menu #settingsMenu [model]="settingsItems" [popup]="true" appendTo="body" />
+
+<!-- ======================================================== -->
+<!-- Application Information Popup Dialog (When clicking '?') -->
+<!-- ======================================================== -->
+
+<p-dialog
+  [(visible)]="helpDialogVisible"
+  [modal]="true"
+  header="About Application"
+  [style]="{ width: '460px', maxWidth: '92vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  appendTo="body"
+>
+  <div class="app-info-modal-content">
+    <div class="app-info-brand">
+      <span class="brand-text">COT<span class="brand-accent">I</span>VITI</span>
+      <span class="app-version-pill">v22.1.2 Enterprise</span>
+    </div>
+    <div class="app-info-text">
+      <p class="app-lead">
+        <strong>Cotiviti FLMS (Fraud, Liability &amp; Management Suite)</strong>
+      </p>
+      <p>
+        Cotiviti FLMS is an advanced healthcare claims intelligence and adjudication platform. It delivers automated pre- and post-payment integrity analysis, comprehensive exception management, EDI ingestion streaming, and clinical data integration pipelines (CDIP).
+      </p>
+      <p>
+        Designed with high-throughput microservices, strict security policies, and zero-defect compliance for healthcare payers and financial auditors.
+      </p>
+      <div class="app-support-box">
+        <strong>Technical Support:</strong>
+        <span>Contact Cotiviti IT Operations at support&#64;cotiviti.com or call 1-800-COTIVITI.</span>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<!-- ======================================================== -->
+<!-- Notifications Overlay Popover                            -->
+<!-- ======================================================== -->
+
+<p-popover #notifPopover appendTo="body">
+  <div class="notif-popover-content">
+    <div class="notif-header">
+      <div class="notif-header-title">
+        <i class="pi pi-bell"></i>
+        <span>Notifications</span>
+      </div>
+      @if (unreadCount() > 0) {
+        <button type="button" class="notif-clear-btn" (click)="markAllNotificationsRead()">
+          Mark all read
+        </button>
+      }
+    </div>
+
+    <div class="notif-list">
+      @for (item of notifications(); track item.id) {
+        <div class="notif-item" [class.read]="item.read">
+          <div class="notif-indicator" [class]="'indicator-' + item.severity"></div>
+          <div class="notif-body">
+            <div class="notif-title-row">
+              <span class="notif-title">{{ item.title }}</span>
+              <span class="notif-time">{{ item.timeAgo }}</span>
+            </div>
+            <p class="notif-desc">{{ item.message }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="notif-footer">
+      <a routerLink="/dashboard" (click)="notifPopover.hide()" class="notif-view-all">
+        View All Notifications &rarr;
+      </a>
+    </div>
+  </div>
+</p-popover>
+
+<!-- ======================================================== -->
+<!-- Cotiviti Suite Apps (9-Dots) Popover:                    -->
+<!-- Cotiviti Administrator features consolidated inside      -->
+<!-- ======================================================== -->
+
+<p-popover #appsPopover appendTo="body">
+  <div class="suite-admin-popover-content">
+    <!-- User Profile Header -->
+    <div class="admin-profile-header">
+      <div class="admin-avatar-circle">
+        <span>CA</span>
+      </div>
+      <div class="admin-profile-info">
+        <span class="admin-display-name">Cotiviti Administrator</span>
+        <span class="admin-email">admin&#64;cotiviti.com</span>
+        <div class="admin-badges">
+          <span class="role-badge">System Administrator</span>
+          <span class="env-badge">Local Sandbox</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cotiviti Administrator Actions & Options -->
+    <div class="admin-menu-list">
+      <button
+        type="button"
+        class="admin-menu-item"
+        (click)="navigateTo('/users'); appsPopover.hide()"
+      >
+        <i class="pi pi-user admin-menu-icon"></i>
+        <div class="admin-menu-text">
+          <span class="admin-item-title">My Profile</span>
+          <span class="admin-item-sub">View personal account settings</span>
+        </div>
+      </button>
+
+      <button
+        type="button"
+        class="admin-menu-item"
+        (click)="navigateTo('/users'); appsPopover.hide()"
+      >
+        <i class="pi pi-users admin-menu-icon"></i>
+        <div class="admin-menu-text">
+          <span class="admin-item-title">User Management</span>
+          <span class="admin-item-sub">Manage enterprise roles &amp; access</span>
+        </div>
+      </button>
+
+      <button
+        type="button"
+        class="admin-menu-item"
+        (click)="navigateTo('/dashboard'); appsPopover.hide()"
+      >
+        <i class="pi pi-sliders-h admin-menu-icon"></i>
+        <div class="admin-menu-text">
+          <span class="admin-item-title">System Settings</span>
+          <span class="admin-item-sub">Environment &amp; tenant configuration</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Sign Out Action -->
+    <div class="admin-popover-footer">
+      <button
+        type="button"
+        class="admin-logout-btn"
+        (click)="onSignOut(); appsPopover.hide()"
+      >
+        <i class="pi pi-sign-out"></i>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </div>
+</p-popover>
+
+<!-- ======================================================== -->
+<!-- Responsive Mobile Drawer Navigation                      -->
+<!-- ======================================================== -->
+
+@if (mobileMenuOpen()) {
+  <div class="mobile-drawer-backdrop" (click)="closeMobileMenu()"></div>
+  <aside class="mobile-drawer-panel" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-text">COT<span class="brand-accent">I</span>VITI</span>
+      <button
+        type="button"
+        class="mobile-drawer-close"
+        (click)="closeMobileMenu()"
+        aria-label="Close Menu"
+      >
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-user">
+      <div class="admin-avatar-circle">
+        <span>CA</span>
+      </div>
+      <div class="mobile-user-details">
+        <span class="mobile-user-name">Cotiviti Administrator</span>
+        <span class="mobile-user-role">admin&#64;cotiviti.com</span>
+      </div>
+    </div>
+
+    <div class="mobile-drawer-links">
+      <!-- FLMS Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('flms')"
+        >
+          <span>FLMS</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'flms'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'flms') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Data Profiler Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('dp')"
+        >
+          <span>Data Profiler</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'dp'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'dp') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Import Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('import')"
+        >
+          <span>Import</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'import'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'import') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Bulk Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('bulk')"
+        >
+          <span>Bulk</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'bulk'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'bulk') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Reports Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('reports')"
+        >
+          <span>Reports</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'reports'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'reports') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- FileManager Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('fm')"
+        >
+          <span>FileManager</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'fm'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'fm') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Exceptions Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('exceptions')"
+        >
+          <span>Exceptions</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'exceptions'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'exceptions') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- CDIP Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('cdip')"
+        >
+          <span>CDIP</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'cdip'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'cdip') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/dashboard')">menu1</a>
+            <a (click)="navigateTo('/dashboard')">menu2</a>
+            <a (click)="navigateTo('/dashboard')">menu3</a>
+          </div>
+        }
+      </div>
+
+      <!-- Admin Section -->
+      <div class="mobile-accordion-group">
+        <button
+          type="button"
+          class="mobile-accordion-toggle"
+          (click)="toggleMobileSection('admin')"
+        >
+          <span>Admin</span>
+          <i
+            class="pi pi-chevron-down"
+            [class.rotate]="expandedMobileSection() === 'admin'"
+          ></i>
+        </button>
+        @if (expandedMobileSection() === 'admin') {
+          <div class="mobile-sublinks">
+            <a (click)="navigateTo('/users')">menu1</a>
+            <a (click)="navigateTo('/users')">menu2</a>
+            <a (click)="navigateTo('/users')">menu3</a>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <button type="button" class="mobile-logout-btn" (click)="onSignOut()">
+        <i class="pi pi-sign-out"></i>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+}

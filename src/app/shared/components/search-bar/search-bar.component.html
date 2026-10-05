@@ -1,0 +1,12 @@
+<div class="search-bar-container">
+  <i class="pi pi-search search-icon" aria-hidden="true"></i>
+  <input
+    pInputText
+    type="text"
+    class="search-input"
+    [placeholder]="placeholder()"
+    [value]="currentQuery()"
+    (input)="onInputChange($event)"
+    aria-label="Search"
+  />
+</div>
