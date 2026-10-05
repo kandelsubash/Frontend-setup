@@ -10,15 +10,15 @@
   width: 100%;
 }
 
-/* Overall Header Container: Very light brown background */
+/* Overall Header Container: Clean crisp white background */
 .cotiviti-header {
   position: sticky;
   top: 0;
   z-index: 1000;
   height: 56px;
-  background-color: #f7f3ec; /* Very light brown / warm sand */
-  border-bottom: 1px solid #e7ded4;
-  box-shadow: 0 1px 3px 0 rgba(80, 60, 30, 0.06);
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   background: transparent;
   border: none;
   font-size: 1.25rem;
-  color: #2c3e50;
+  color: #334155;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 6px;
@@ -51,11 +51,11 @@
 }
 
 .mobile-toggle-btn:hover {
-  background-color: #eae1d5;
+  background-color: #f1f5f9;
   color: #0f172a;
 }
 
-/* Brand Link and Logo Typography (Bold) */
+/* Brand Link and Logo Typography */
 .brand-container {
   display: inline-flex;
   align-items: center;
@@ -67,7 +67,7 @@
 .brand-text {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
-  font-weight: 800; /* Bold */
+  font-weight: 700;
   letter-spacing: 0.22em;
   color: #102a43;
   line-height: 1;
@@ -76,10 +76,10 @@
 
 .brand-accent {
   color: #d92938;
-  font-weight: 900;
+  font-weight: 800;
 }
 
-/* Desktop Navigation Links (Little bit bold) */
+/* Desktop Navigation Links */
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -96,15 +96,15 @@
   padding: 0.45rem 0.65rem;
   border-radius: 6px;
   font-size: 0.875rem;
-  font-weight: 700; /* Little bit bold */
-  color: #243347;
+  font-weight: 500;
+  color: #334155;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   white-space: nowrap;
 }
 
 .nav-tab-btn:hover {
-  background-color: #eae1d5;
+  background-color: #f8fafc;
   color: #0284c7;
 }
 
@@ -115,22 +115,12 @@
 
 .nav-tab-caret {
   font-size: 0.65rem;
-  color: #556980;
+  color: #64748b;
   transition: transform 0.15s ease;
 }
 
 .nav-tab-btn:hover .nav-tab-caret {
   color: #0284c7;
-}
-
-/* Subheaders & Dropdown text: Little bit bold */
-:host ::ng-deep .p-menu .p-menu-item-link {
-  font-weight: 600;
-  color: #1e293b;
-}
-
-:host ::ng-deep .p-menu .p-menu-item-label {
-  font-weight: 600;
 }
 
 /* ========================================================
@@ -153,15 +143,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #334155;
+  color: #475569;
   font-size: 1.05rem;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
 
 .icon-action-btn:hover {
-  background-color: #eae1d5;
+  background-color: #f1f5f9;
   color: #0f172a;
 }
 
@@ -189,7 +178,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #f7f3ec;
+  border: 1.5px solid #ffffff;
 }
 
 /* ========================================================
@@ -553,7 +542,6 @@
   justify-content: space-between;
   padding: 1rem 1.25rem;
   border-bottom: 1px solid #e2e8f0;
-  background-color: #f7f3ec;
 }
 
 .mobile-drawer-close {
@@ -580,7 +568,7 @@
 
 .mobile-user-name {
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #0f172a;
 }
 
@@ -607,7 +595,7 @@
   background: transparent;
   border: none;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #1e293b;
   cursor: pointer;
   text-align: left;
@@ -631,7 +619,6 @@
   display: block;
   padding: 0.5rem 1.25rem 0.5rem 2rem;
   font-size: 0.825rem;
-  font-weight: 600;
   color: #475569;
   text-decoration: none;
   cursor: pointer;
