@@ -11,6 +11,7 @@ export interface FormFieldConfig {
   placeholder?: string;
   required?: boolean;
   errorMessage?: string;
+  fieldClass?: string;
 }
 
 /**
@@ -36,6 +37,15 @@ export class AppDynamicFormComponent {
 
   /** Submitting state flag. */
   readonly loading = input<boolean>(false);
+
+  /** Layout structure: 'vertical' | 'horizontal' | 'grid'. */
+  readonly layout = input<'vertical' | 'horizontal' | 'grid'>('vertical');
+
+  /** Outer container CSS class. */
+  readonly containerClass = input<string>('');
+
+  /** Form-level styleClass for visual parity. */
+  readonly styleClass = input<string>('');
 
   /** Emits form submit event. */
   readonly formSubmit = output<void>();

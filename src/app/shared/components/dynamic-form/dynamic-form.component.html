@@ -1,6 +1,6 @@
-<form [formGroup]="form()" (ngSubmit)="onSubmit()" class="dynamic-form-container">
+<form [formGroup]="form()" (ngSubmit)="onSubmit()" class="dynamic-form-container" [ngClass]="[containerClass(), styleClass(), 'layout-' + layout()]">
   @for (field of fields(); track field.name) {
-    <div class="dynamic-form-field">
+    <div [ngClass]="['dynamic-form-field', field.fieldClass ?? '']">
       <label [for]="field.name" class="field-label">
         {{ field.label }}
         @if (field.required) {

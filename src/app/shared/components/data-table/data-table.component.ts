@@ -7,6 +7,7 @@ export interface TableColumn {
   header: string;
   sortable?: boolean;
   width?: string;
+  columnStyleClass?: string;
 }
 
 /**
@@ -38,4 +39,13 @@ export class AppDataTableComponent<T extends Record<string, unknown>> {
 
   /** Empty table message. */
   readonly emptyMessage = input<string>('No records found.');
+
+  /** Outer container CSS class for module layout alignment. */
+  readonly containerClass = input<string>('');
+
+  /** PrimeNG table styleClass for theme and visual parity. */
+  readonly styleClass = input<string>('p-datatable-striped');
+
+  /** Inline styles object for table element (e.g. min-width, width). */
+  readonly tableStyle = input<Record<string, string>>({ 'min-width': '50rem' });
 }
